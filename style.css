@@ -173,21 +173,13 @@ main {
   cursor: pointer;
   font-family: var(--lato);
 }
-.btn-promote {
-  background: var(--blue);
-  color: #fff;
-}
-.btn-remove {
-  background: var(--red);
-  color: #fff;
-}
+.btn-promote { background: var(--blue); color: #fff; }
+.btn-demote { background: var(--yellow); color: #fff; }
+.btn-disconnect { background: var(--orange); color: #fff; }
+.btn-delete { background: var(--red); color: #fff; }
 
-/* Responsive adjustments */
+/* Responsive */
 @media screen and (max-width: 768px) {
-  #sidebar {
-    width: 200px;
-  }
-  #content {
-    margin-left: 200px;
-  }
+  #sidebar { width: 200px; }
+  #content { margin-left: 200px; }
 }
