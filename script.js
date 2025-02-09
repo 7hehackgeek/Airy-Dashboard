@@ -36,28 +36,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  function setupButtons() {
-    document.querySelector('#connections-table').addEventListener('click', function(e) {
-      if (e.target.classList.contains('btn-promote')) {
-        const deviceId = e.target.getAttribute('data-deviceid');
-        sendApiRequest('/api/promote', deviceId);
-      }
-      if (e.target.classList.contains('btn-demote')) {
-        const deviceId = e.target.getAttribute('data-deviceid');
-        sendApiRequest('/api/demote', deviceId);
-      }
-      if (e.target.classList.contains('btn-disconnect')) {
-        const deviceId = e.target.getAttribute('data-deviceid');
-        sendApiRequest('/api/disconnect', deviceId);
-      }
-      if (e.target.classList.contains('btn-delete')) {
-        const deviceId = e.target.getAttribute('data-deviceid');
-        sendApiRequest('/api/delete', deviceId);
-      }
-    });
-  }
+  document.querySelector('#connections-table').addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn-promote')) {
+      const deviceId = e.target.getAttribute('data-deviceid');
+      sendApiRequest('/api/promote', deviceId);
+    }
+    if (e.target.classList.contains('btn-demote')) {
+      const deviceId = e.target.getAttribute('data-deviceid');
+      sendApiRequest('/api/demote', deviceId);
+    }
+    if (e.target.classList.contains('btn-disconnect')) {
+      const deviceId = e.target.getAttribute('data-deviceid');
+      sendApiRequest('/api/disconnect', deviceId);
+    }
+    if (e.target.classList.contains('btn-delete')) {
+      const deviceId = e.target.getAttribute('data-deviceid');
+      sendApiRequest('/api/delete', deviceId);
+    }
+  });
 
   fetchConnections();
-  setupButtons();
   setInterval(fetchConnections, 5000);
 });
