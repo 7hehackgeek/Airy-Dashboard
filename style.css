@@ -12,6 +12,7 @@
   --red: #DB504A;
   --yellow: #FFCE26;
   --orange: #FD7238;
+  --green: #36E9B6;
 }
 
 body {
@@ -164,6 +165,15 @@ main {
   font-weight: 600;
 }
 
+#connections-table .queue-front {
+  background-color: var(--light-blue);
+}
+
+#connections-table .queue-disconnected {
+  background-color: var(--grey);
+  color: var(--dark-grey);
+}
+
 /* Buttons */
 .btn {
   padding: 6px 12px;
@@ -172,11 +182,30 @@ main {
   border-radius: 4px;
   cursor: pointer;
   font-family: var(--lato);
+  transition: all 0.3s ease;
 }
+
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
 .btn-promote { background: var(--blue); color: #fff; }
 .btn-demote { background: var(--yellow); color: #fff; }
 .btn-disconnect { background: var(--orange); color: #fff; }
 .btn-delete { background: var(--red); color: #fff; }
+
+.btn-refresh {
+  background: var(--blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.btn-refresh i {
+  margin-right: 6px;
+}
 
 /* Responsive */
 @media screen and (max-width: 768px) {
