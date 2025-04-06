@@ -96,6 +96,54 @@
           </tbody>
         </table>
       </section>
+
+      <!-- Tabs Navigation -->
+      <div class="tabs">
+        <button class="tablink active" onclick="openTab(event, 'Queue')">Queue</button>
+        <button class="tablink" onclick="openTab(event, 'Ratings')">Ratings</button>
+      </div>
+
+      <!-- Queue Tab -->
+      <div id="Queue" class="tabcontent" style="display:block;">
+        <h2>Current Queue</h2>
+        <div class="controls">
+          <button onclick="fetchQueueData()">Refresh Queue</button>
+          <button id="pauseResumeButton" onclick="togglePause()" disabled>Pause Queue</button>
+          <span id="pauseStatus" style="margin-left: 10px; color: orange; display: none;">(Paused)</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Device ID</th>
+              <th>Status</th>
+              <th>Confirmed</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="queueTableBody">
+            <!-- Queue data will be populated here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Ratings Tab -->
+      <div id="Ratings" class="tabcontent">
+        <h2>User Ratings</h2>
+        <button onclick="fetchRatings()">Refresh Ratings</button>
+        <table id="ratingsTable">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Rating (Stars)</th>
+              <th>Device ID</th>
+            </tr>
+          </thead>
+          <tbody id="ratingsTableBody">
+            <!-- Rating rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
     </main>
     <!-- MAIN -->
   </section>
