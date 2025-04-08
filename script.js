@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (connections.length === 0) {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td colspan="5" style="text-align: center;">No active connections</td>`;
+        tr.innerHTML = `<td colspan="4" style="text-align: center;">No active connections</td>`;
         tbody.appendChild(tr);
         return;
       }
@@ -16,19 +16,16 @@ document.addEventListener('DOMContentLoaded', function() {
       connections.forEach(conn => {
         const tr = document.createElement('tr');
         
-        // Set row color based on status
+        // Set row color based on position (only front user highlighted)
         let rowClass = '';
-        if (conn.status === 'active' && conn.position === 1) {
+        if (conn.position === 1) {
           rowClass = 'queue-front';
-        } else if (conn.status === 'inactive') {
-          rowClass = 'queue-inactive';
         }
         
         tr.className = rowClass;
         tr.innerHTML = `
           <td>${conn.position}</td>
           <td>${conn.deviceId}</td>
-          <td>${conn.status}</td>
           <td>${conn.confirmed ? 'Yes' : 'No'}</td>
           <td>
             <button class="btn btn-promote" data-deviceid="${conn.deviceId}">Promote</button>
@@ -42,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
       console.error('Error fetching connections:', error);
       // Show error message in the table
       const tbody = document.querySelector('#connections-table tbody');
-      tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: red;">
+      tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: red;">
         Error loading data: ${error.message || 'Network error'}
       </td></tr>`;
     }

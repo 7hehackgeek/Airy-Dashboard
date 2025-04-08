@@ -169,7 +169,7 @@ main {
   background-color: var(--light-blue);
 }
 
-#connections-table .queue-inactive {
+#connections-table .queue-inactive { /* Renamed from queue-disconnected */
   background-color: var(--grey);
   color: var(--dark-grey);
 }
