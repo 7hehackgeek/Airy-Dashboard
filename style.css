@@ -3,21 +3,32 @@
 :root {
   --poppins: 'Poppins', sans-serif;
   --lato: 'Lato', sans-serif;
-  --light: #F9F9F9;
-  --blue: #3C91E6;
-  --light-blue: #CFE8FF;
-  --grey: #eee;
-  --dark-grey: #AAAAAA;
-  --dark: #342E37;
+
+  /* Dark Mode Colors */
+  --light: #1F232E; /* Dark background */
+  --blue: #5A9BD5; /* Accent blue */
+  --light-blue: #3A5F7E; /* Darker blue for highlights */
+  --grey: #2D3240; /* Slightly lighter dark background */
+  --dark-grey: #888888; /* Lighter grey for secondary text/borders */
+  --dark: #E0E0E0; /* Light text color */
   --red: #DB504A;
   --yellow: #FFCE26;
   --orange: #FD7238;
   --green: #36E9B6;
+
+  /* Original Light Mode Colors (commented out) */
+  /* --light: #F9F9F9; */
+  /* --blue: #3C91E6; */
+  /* --light-blue: #CFE8FF; */
+  /* --grey: #eee; */
+  /* --dark-grey: #AAAAAA; */
+  /* --dark: #342E37; */
 }
 
 body {
   font-family: var(--lato);
-  background: var(--grey);
+  background: var(--dark); /* Use the main dark background for the body */
+  color: var(--dark); /* Default text color */
   margin: 0;
   padding: 0;
 }
@@ -29,9 +40,10 @@ body {
   left: 0;
   width: 280px;
   height: 100%;
-  background: var(--light);
+  background: var(--light); /* Sidebar background */
   transition: .3s ease;
   padding: 20px 0;
+  border-right: 1px solid var(--grey); /* Add a subtle border */
 }
 #sidebar .brand {
   font-size: 24px;
@@ -55,11 +67,11 @@ body {
 }
 #sidebar ul.side-menu li.active,
 #sidebar ul.side-menu li:hover {
-  background: var(--grey);
+  background: var(--grey); /* Active/hover background */
   border-radius: 4px;
 }
 #sidebar ul.side-menu li a {
-  color: var(--dark);
+  color: var(--dark); /* Text color for sidebar links */
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -73,18 +85,19 @@ body {
   margin-left: 280px;
   padding: 20px;
   transition: .3s ease;
+  background: var(--dark); /* Content area background */
 }
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--light);
+  background: var(--light); /* Nav background */
   padding: 10px 20px;
-  border-bottom: 1px solid var(--grey);
+  border-bottom: 1px solid var(--grey); /* Nav border */
 }
 nav .nav-link {
   font-size: 16px;
-  color: var(--dark);
+  color: var(--dark); /* Nav link color */
 }
 nav form {
   flex-grow: 1;
@@ -97,15 +110,17 @@ nav form .form-input {
 nav form .form-input input {
   width: 100%;
   padding: 8px;
-  border: 1px solid var(--grey);
+  border: 1px solid var(--grey); /* Input border */
   border-radius: 4px 0 0 4px;
   outline: none;
+  background: var(--grey); /* Input background */
+  color: var(--dark); /* Input text color */
 }
 nav form .form-input button {
   padding: 8px 12px;
   border: none;
   background: var(--blue);
-  color: #fff;
+  color: #fff; /* Keep button text white for contrast */
   border-radius: 0 4px 4px 0;
   cursor: pointer;
 }
@@ -124,7 +139,7 @@ main {
   font-family: var(--poppins);
   font-size: 36px;
   margin-bottom: 10px;
-  color: var(--dark);
+  color: var(--dark); /* Main title color */
 }
 .breadcrumb {
   display: flex;
@@ -133,7 +148,7 @@ main {
 }
 .breadcrumb li {
   margin-right: 8px;
-  color: var(--dark-grey);
+  color: var(--dark-grey); /* Breadcrumb color */
 }
 
 /* Active Connections Table */
@@ -143,35 +158,38 @@ main {
 #active-connections h2 {
   font-family: var(--poppins);
   font-size: 28px;
-  color: var(--dark);
+  color: var(--dark); /* Section title color */
   margin-bottom: 10px;
 }
 #connections-table {
   width: 100%;
   border-collapse: collapse;
-  background: var(--light);
+  background: var(--light); /* Table background */
   border-radius: 8px;
   overflow: hidden;
+  border: 1px solid var(--grey); /* Add border around table */
 }
 #connections-table th, 
 #connections-table td {
   padding: 12px;
-  border: 1px solid var(--grey);
+  border: 1px solid var(--grey); /* Table cell borders */
   text-align: left;
+  color: var(--dark); /* Default table text color */
 }
 #connections-table th {
-  background: var(--light-blue);
-  color: var(--dark);
+  background: var(--light-blue); /* Table header background */
+  color: var(--dark); /* Table header text color */
   font-weight: 600;
 }
 
 #connections-table .queue-front {
-  background-color: var(--light-blue);
+  background-color: var(--light-blue); /* Keep this distinct */
+  /* Consider adjusting text color if needed */
 }
 
 #connections-table .queue-inactive { /* Renamed from queue-disconnected */
   background-color: var(--grey);
-  color: var(--dark-grey);
+  color: var(--dark-grey); /* Dim text for inactive */
 }
 
 /* Buttons */
@@ -190,13 +208,13 @@ main {
   transform: translateY(-2px);
 }
 
-.btn-promote { background: var(--blue); color: #fff; }
-.btn-demote { background: var(--yellow); color: #fff; }
-.btn-delete { background: var(--red); color: #fff; }
+.btn-promote { background: var(--blue); color: #fff; } /* Keep white text */
+.btn-demote { background: var(--yellow); color: var(--dark); } /* Use dark text on yellow */
+.btn-delete { background: var(--red); color: #fff; } /* Keep white text */
 
 .btn-refresh {
   background: var(--blue);
-  color: #fff;
+  color: #fff; /* Keep white text */
   display: flex;
   align-items: center;
   padding: 8px 16px;
