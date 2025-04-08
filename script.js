@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let rowClass = '';
         if (conn.status === 'active' && conn.position === 1) {
           rowClass = 'queue-front';
-        } else if (conn.status === 'disconnected') {
-          rowClass = 'queue-disconnected';
+        } else if (conn.status === 'inactive') {
+          rowClass = 'queue-inactive';
         }
         
         tr.className = rowClass;
@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
           <td>
             <button class="btn btn-promote" data-deviceid="${conn.deviceId}">Promote</button>
             <button class="btn btn-demote" data-deviceid="${conn.deviceId}">Demote</button>
-            <button class="btn btn-disconnect" data-deviceid="${conn.deviceId}">Disconnect</button>
             <button class="btn btn-delete" data-deviceid="${conn.deviceId}">Delete</button>
           </td>
         `;
@@ -71,12 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (confirm('Are you sure you want to move this user to the back of the queue?')) {
         const deviceId = e.target.getAttribute('data-deviceid');
         sendApiRequest('/api/demote', deviceId);
-      }
-    }
-    if (e.target.classList.contains('btn-disconnect')) {
-      if (confirm('Are you sure you want to disconnect this user? They will see a disconnection message.')) {
-        const deviceId = e.target.getAttribute('data-deviceid');
-        sendApiRequest('/api/disconnect', deviceId);
       }
     }
     if (e.target.classList.contains('btn-delete')) {

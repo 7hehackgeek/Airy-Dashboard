@@ -169,7 +169,7 @@ main {
   background-color: var(--light-blue);
 }
 
-#connections-table .queue-disconnected {
+#connections-table .queue-inactive {
   background-color: var(--grey);
   color: var(--dark-grey);
 }
@@ -192,7 +192,6 @@ main {
 
 .btn-promote { background: var(--blue); color: #fff; }
 .btn-demote { background: var(--yellow); color: #fff; }
-.btn-disconnect { background: var(--orange); color: #fff; }
 .btn-delete { background: var(--red); color: #fff; }
 
 .btn-refresh {
