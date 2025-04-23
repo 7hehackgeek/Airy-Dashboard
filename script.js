@@ -120,7 +120,7 @@ function updateChart(ratingsData) {
             y: {
                 beginAtZero: true,
                 ticks: {
-                    color: 'var(--color-text-medium)', // Y-axis labels color
+                    color: '#878787', // Use direct hex code for medium grey
                      stepSize: 1 // Ensure integer steps for counts
                 },
                 grid: {
@@ -129,7 +129,7 @@ function updateChart(ratingsData) {
             },
             x: {
                 ticks: {
-                    color: 'var(--color-text-light)' // X-axis labels color
+                    color: '#E6E6E6', // Use direct hex code for light grey
                 },
                 grid: {
                     display: false // Hide vertical grid lines
